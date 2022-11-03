@@ -1,0 +1,11 @@
+/*(0,0,1)*/
+body{
+    background-color: #DEF8FC;
+    color: black;
+}
+/*(0,0,1)*/
+h1{
+    /*El color de la letra lo hereda de body*/
+    background-color: #4DD2FF;
+    padding: 0.8em;
+}
