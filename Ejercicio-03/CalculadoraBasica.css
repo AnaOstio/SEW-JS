@@ -1,0 +1,47 @@
+/*(0,0,1)*/
+body{
+    background-color: antiquewhite;
+    color: black;
+}
+
+main {
+    width: 100%;
+    max-width: 20em;
+    border-radius: 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7,1fr);
+    grid-gap: 1em;
+    padding: 2em;
+}
+
+main > input[type ="text"]{
+    width: 97%;
+    height: 4em;
+    grid-column: 1/5;
+}
+
+main > input[type = "button"]{
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+    color: black;
+}
+
+main > input[type = "button"][value = "+"], 
+main > input[type = "button"][value = "-"], 
+main > input[type = "button"][value = "*"], 
+main > input[type = "button"][value = "/"], 
+main > input[type = "button"][value = "="]
+{
+    color: black;
+    background-color: aquamarine;
+}
+
+main > input[type = "button"][value = "MRC"], 
+main > input[type = "button"][value = "M-"], 
+main > input[type = "button"][value = "M+"] 
+{
+    color: black;
+    background-color: #d8bfd8;
+}
