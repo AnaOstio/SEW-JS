@@ -1,0 +1,86 @@
+/*(0,0,1)*/
+body{
+    background-color: whitesmoke;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*(0,0,1)*/
+main {
+    width: 100%;
+    max-width: 22em;
+    border-radius: 1em;
+    display: grid;
+    background-color: #d8bfd8;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6,1fr);
+    grid-gap: 1em;
+    padding: 2em;
+}
+/*(0,1,2)*/
+main > input[type ="text"]{
+    width: 97%;
+    height: 4em;
+    grid-column: 1/6;
+}
+/*(0,1,2)*/
+main > input[type = "button"]{
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+    color: black;
+}
+/*(0,2,2)*/
+main > input[type = "button"][value = "+"], 
+main > input[type = "button"][value = "-"], 
+main > input[type = "button"][value = "x"], 
+main > input[type = "button"][value = "/"], 
+main > input[type = "button"][value = "%"], 
+main > input[type = "button"][value = "MRC"], 
+main > input[type = "button"][value = "M-"], 
+main > input[type = "button"][value = "M+"],  
+main > input[type = "button"][value = "+/-"],  
+main > input[type = "button"][value = "√"],  
+main > input[type = "button"][value = "CE"], 
+main > input[type = "button"][value = "C"]
+{
+    color: black;
+    background-color: aquamarine;
+}
+
+
+/*(0,2,2)*/
+main > input[type = "button"][value = "1"], 
+main > input[type = "button"][value = "2"], 
+main > input[type = "button"][value = "3"], 
+main > input[type = "button"][value = "4"], 
+main > input[type = "button"][value = "5"], 
+main > input[type = "button"][value = "6"], 
+main > input[type = "button"][value = "7"], 
+main > input[type = "button"][value = "8"],  
+main > input[type = "button"][value = "9"],  
+main > input[type = "button"][value = "0"],
+main > input[type = "button"][value = "·"],  
+main > input[type = "button"][value = "="]
+{
+    color: black;
+    background-color: #fdfd96;
+}
+/*(0,1,1)*/
+main :nth-child(21){
+    grid-row-start: 5;
+    grid-row-end: 7;
+    grid-column-start: 4;
+    grid-column-end: 5;
+
+}
+/*(0,0,1)*/
+label{
+    /*Hago esto con el label, para que no moleste despues a la 
+    visualizacion del contenido*/
+    color: white;
+    background-color: #000000;
+    display: none;
+}
