@@ -69,7 +69,7 @@ main > input[type = "button"][value = "="]
     background-color: #fdfd96;
 }
 /*(0,1,1)*/
-main :nth-child(21){
+main :nth-child(20){
     grid-row-start: 5;
     grid-row-end: 7;
     grid-column-start: 4;

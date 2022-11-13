@@ -8,6 +8,7 @@ class Calculadora {
         this.memoria = 0;
         this.raiz = false;
         this.cRaiz = ""
+        this.contador = 2
     }
 
     botonCE(){
@@ -25,13 +26,14 @@ class Calculadora {
         this.ope = "";
         this.memoria = "";
         this.mostrar = false;
+        this.contador = 2
     }
 
     botonRaizCuadrada(){
         if(!this.raiz) {
             this.raiz = true 
        }
-        var res = Math.sqrt(Number(this.pantalla));
+        var res = eval(Number(this.pantalla) + '**' + "(1/2)");
         this.pantalla = res;
         document.getElementsByName('pantalla')[0].value = this.pantalla
         this.raiz
@@ -103,9 +105,6 @@ class Calculadora {
     digito(number){
         if (this.pantalla === '+' || this.pantalla === '-' || this.pantalla === '*' 
             || this.pantalla === '/' || this.pantalla === '%' ){
-                if(this.raiz){
-                    this.cRaiz += number + ""
-                }
 
             this.pantalla = number + ""
             document.getElementsByName('pantalla')[0].value = this.pantalla 
@@ -194,14 +193,16 @@ class Calculadora {
     }
 
     multiplicacion(){
-        console.log(this.op1)
+        
         if(this.op1.length == 0){
             this.ope = '*';
-            this.op1 = Number(this.pantalla)
+            this.op1 = this.pantalla
+
             this.pantalla = '*'
             document.getElementsByName('pantalla')[0].value = this.pantalla 
 
         } else {
+
             this.op2 = Number(this.pantalla)
             try{
                 var res = eval(this.op1 + this.ope + this.op2)
@@ -297,22 +298,30 @@ class Calculadora {
             this.op1 = ""
             this.mostrar = false
         } else {
-            this.op2 = Number(this.pantalla)
-            try{
-                var res = eval(this.op1 + this.ope + this.op2)
-                this.pantalla = res;
-                this.memoria = res
-                this.op1 = ""
-                this.op = ""
-                document.getElementsByName('pantalla')[0].value = this.pantalla
+                this.op2 = this.pantalla
+                 if(this.ope == '*'){
+                    var res = eval(this.op1 + "**" + this.contador)
+                    this.pantalla = res
+                    this.contador = this.contador + 1
+                    this.op2 = '*'
+                    document.getElementsByName('pantalla')[0].value = this.pantalla
+                } else{
+                try{
+                    var res = eval(this.op1 + this.ope + this.op2)
+                    this.pantalla = res;
+                    this.memoria = res
+                    this.op1 = ""
+                    this.op = ""
+                    document.getElementsByName('pantalla')[0].value = this.pantalla
 
-            } catch (err) {
-                this.pantalla = "ERROR"
-                document.getElementsByName('pantalla')[0].value = this.pantalla
-                this.op1 = "";
-                this.op2 = "";
-                this.ope = "";
-                this.mostrar = false;
+                } catch (err) {
+                    this.pantalla = "ERROR"
+                    document.getElementsByName('pantalla')[0].value = this.pantalla
+                    this.op1 = "";
+                    this.op2 = "";
+                    this.ope = "";
+                    this.mostrar = false;
+                }
             }
         }
     }
@@ -328,9 +337,9 @@ class Calculadora {
                       prueba == '0'){
                 calc.digito(prueba)
             } else if(prueba == '*'){
-                calc.botonMul()
+                calc.multiplicacion()
             } else if(prueba == '/'){
-                calc.botonDiv();
+                calc.division();
             } else if(prueba == 'Enter'){
                 calc.igual();
             } else if(prueba == '%'){
@@ -340,15 +349,13 @@ class Calculadora {
             } else if(prueba == 'Delete'){
                 calc.botonCE();
             } else if(prueba == '-'){
-                calc.botonResta();
+                calc.resta();
             } else if(prueba == 'm' || prueba == 'M' ){
                 calc.mrc()
             } else if(prueba == 'n' || prueba == 'N' ){
                 calc.mMas()
             } else if(prueba == 'b' || prueba == 'B' ){
                 calc.mMenos()
-            } else if(prueba == 'E' || prueba == 'e'){
-                calc.botonCE()
             } else if(prueba == 'r' || prueba == 'R'){
                 calc.raiz();
             } else if(prueba == ','){

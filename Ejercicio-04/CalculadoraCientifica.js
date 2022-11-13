@@ -8,6 +8,7 @@ class Calculadora {
         this.memoria = 0;
         this.raiz = false;
         this.cRaiz = ""
+        this.contador = 2
     }
 
     botonCE(){
@@ -25,13 +26,14 @@ class Calculadora {
         this.ope = "";
         this.memoria = "";
         this.mostrar = false;
+        this.contador = 2
     }
 
     botonRaizCuadrada(){
         if(!this.raiz) {
             this.raiz = true 
        }
-        var res = Math.sqrt(Number(this.pantalla));
+        var res = eval(Number(this.pantalla) + '**' + "(1/2)");
         this.pantalla = res;
         document.getElementsByName('pantalla')[0].value = this.pantalla
         this.raiz
@@ -103,9 +105,6 @@ class Calculadora {
     digito(number){
         if (this.pantalla === '+' || this.pantalla === '-' || this.pantalla === '*' 
             || this.pantalla === '/' || this.pantalla === '%' ){
-                if(this.raiz){
-                    this.cRaiz += number + ""
-                }
 
             this.pantalla = number + ""
             document.getElementsByName('pantalla')[0].value = this.pantalla 
@@ -194,14 +193,16 @@ class Calculadora {
     }
 
     multiplicacion(){
-        console.log(this.op1)
+        
         if(this.op1.length == 0){
             this.ope = '*';
-            this.op1 = Number(this.pantalla)
+            this.op1 = this.pantalla
+
             this.pantalla = '*'
             document.getElementsByName('pantalla')[0].value = this.pantalla 
 
         } else {
+
             this.op2 = Number(this.pantalla)
             try{
                 var res = eval(this.op1 + this.ope + this.op2)
@@ -297,22 +298,30 @@ class Calculadora {
             this.op1 = ""
             this.mostrar = false
         } else {
-            this.op2 = Number(this.pantalla)
-            try{
-                var res = eval(this.op1 + this.ope + this.op2)
-                this.pantalla = res;
-                this.memoria = res
-                this.op1 = ""
-                this.op = ""
-                document.getElementsByName('pantalla')[0].value = this.pantalla
+                this.op2 = this.pantalla
+                 if(this.ope == '*'){
+                    var res = eval(this.op1 + "**" + this.contador)
+                    this.pantalla = res
+                    this.contador = this.contador + 1
+                    this.op2 = '*'
+                    document.getElementsByName('pantalla')[0].value = this.pantalla
+                } else{
+                try{
+                    var res = eval(this.op1 + this.ope + this.op2)
+                    this.pantalla = res;
+                    this.memoria = res
+                    this.op1 = ""
+                    this.op = ""
+                    document.getElementsByName('pantalla')[0].value = this.pantalla
 
-            } catch (err) {
-                this.pantalla = "ERROR"
-                document.getElementsByName('pantalla')[0].value = this.pantalla
-                this.op1 = "";
-                this.op2 = "";
-                this.ope = "";
-                this.mostrar = false;
+                } catch (err) {
+                    this.pantalla = "ERROR"
+                    document.getElementsByName('pantalla')[0].value = this.pantalla
+                    this.op1 = "";
+                    this.op2 = "";
+                    this.ope = "";
+                    this.mostrar = false;
+                }
             }
         }
     }
@@ -328,9 +337,9 @@ class Calculadora {
                       prueba == '0'){
                 calc.digito(prueba)
             } else if(prueba == '*'){
-                calc.botonMul()
+                calc.multiplicacion()
             } else if(prueba == '/'){
-                calc.botonDiv();
+                calc.division();
             } else if(prueba == 'Enter'){
                 calc.igual();
             } else if(prueba == '%'){
@@ -340,15 +349,13 @@ class Calculadora {
             } else if(prueba == 'Delete'){
                 calc.botonCE();
             } else if(prueba == '-'){
-                calc.botonResta();
+                calc.resta();
             } else if(prueba == 'm' || prueba == 'M' ){
                 calc.mrc()
             } else if(prueba == 'n' || prueba == 'N' ){
                 calc.mMas()
             } else if(prueba == 'b' || prueba == 'B' ){
                 calc.mMenos()
-            } else if(prueba == 'E' || prueba == 'e'){
-                calc.botonCE()
             } else if(prueba == 'r' || prueba == 'R'){
                 calc.raiz();
             } else if(prueba == ','){
@@ -366,9 +373,39 @@ class CalculadoraCientifica extends Calculadora{
         this.parentesis = false
         this.fHyper = false;
         this.NotacionCien = false;
-        // meter en flecha un if-else para cambiar el html 
-        // luego en cos, sen, tan, meter los arcos 
         this.arco = false
+    }
+
+    bottonC(){
+        super.botonC()
+        this.parentesis = false
+    }
+
+    xElevadoY(){
+        if(this.op1.length == 0){
+            this.ope = '^';
+            this.op1 = Number(this.pantalla)
+            console.log(this.op1)
+            this.pantalla = '^'
+            document.getElementsByName('pantalla')[0].value = this.pantalla
+        } else {
+            this.op2 = this.pantalla.substring(1)  
+            try{
+                var res = Math.pow(this.op1, this.op2)
+                this.pantalla = res
+                this.op1 = res
+                this.op = '^'
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value = this.pantalla
+            } catch(err){
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.mostrar = false;
+            }
+        }
     }
 
     buttonPI(){
@@ -406,33 +443,63 @@ class CalculadoraCientifica extends Calculadora{
         } else if(document.getElementsByName('grades')[0].value = "GRAD"){
             valor = valor * Math.PI / 200
         }
-        if(this.fHyper){
-            var res = Math.sinh(Number(valor))
+        if(!this.arco){
+            if(this.fHyper){
+                var res = Math.sinh(Number(valor))
+            } else {
+                var res = Math.sin(Number(valor))
+            }
+            this.pantalla = res;
+            document.getElementsByName('pantalla')[0].value = this.pantalla
         } else {
-            var res = Math.sin(Number(valor))
+            if(this.fHyper){
+                var res = Math.asinh(Number(valor))
+            } else {
+                var res = Math.asin(Number(valor))
+            }
+            this.pantalla = res;
+            document.getElementsByName('pantalla')[0].value = this.pantalla
         }
-        this.pantalla = res;
-        document.getElementsByName('pantalla')[0].value = this.pantalla
     }
 
     cos(){
-        if(this.fHyper){
-            var res = Math.cosh(Number(this.pantalla))
+        if(!this.arco){
+            if(this.fHyper){
+                var res = Math.cosh(Number(this.pantalla))
+            } else {
+                var res = Math.cos(Number(this.pantalla))
+            }
+            this.pantalla = res;
+            document.getElementsByName('pantalla')[0].value = this.pantalla
         } else {
-            var res = Math.cos(Number(this.pantalla))
+            if(this.fHyper){
+                var res = Math.acosh(Number(this.pantalla))
+            } else {
+                var res = Math.acos(Number(this.pantalla))
+            }
+            this.pantalla = res;
+            document.getElementsByName('pantalla')[0].value = this.pantalla
         }
-        this.pantalla = res;
-        document.getElementsByName('pantalla')[0].value = this.pantalla
     }
 
     tan(){
-        if(this.fHyper){
-            var res = Math.tanh(Number(this.pantalla))
+        if(!this.arco){
+            if(this.fHyper){
+                var res = Math.tanh(Number(this.pantalla))
+            } else {
+                var res = Math.tan(Number(this.pantalla))
+            }
+            this.pantalla = res;
+            document.getElementsByName('pantalla')[0].value = this.pantalla
         } else {
-            var res = Math.tan(Number(this.pantalla))
+            if(this.fHyper){
+                var res = Math.atanh(Number(this.pantalla))
+            } else {
+                var res = Math.atan(Number(this.pantalla))
+            }
+            this.pantalla = res;
+            document.getElementsByName('pantalla')[0].value = this.pantalla
         }
-        this.pantalla = res;
-        document.getElementsByName('pantalla')[0].value = this.pantalla
     }
 
     buttonFE(){
@@ -481,6 +548,171 @@ class CalculadoraCientifica extends Calculadora{
         }
     }
 
+    flecha(){
+        if(!this.arco){
+            this.arco = true
+            document.getElementsByName('seno')[0].value = "arcsin"
+            document.getElementsByName('cos')[0].value = "arccos"
+            document.getElementsByName('tan')[0].value = "arctan"
+        } else {
+            this.arco = false
+            document.getElementsByName('seno')[0].value = "sin"
+            document.getElementsByName('cos')[0].value = "cos"
+            document.getElementsByName('tan')[0].value = "tan"
+        }
+    }
+
+    mod(){
+        if(this.op1.length == 0){
+            this.ope = '%';
+            this.op1 = Number(this.pantalla)
+            this.pantalla = '%'
+            document.getElementsByName('pantalla')[0].value =  this.pantalla 
+
+        } else {
+            this.op2 = Number(this.pantalla)
+            try{
+                var res = eval(this.op1 + this.ope + this.op2)
+                this.pantalla = res;
+                this.op1 = res
+                this.ope = '%';
+                this.pantalla += this.ope;
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value =  this.pantalla 
+            } catch (err) {
+                document.getElementsByName('pantalla')[0].value =  this.pantalla 
+                buton.value = this.pantalla
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.mostrar = false;
+            }
+        }
+    }
+
+    exp(){
+        if(this.op1.length == 0){
+            this.ope = ',e+';
+            this.op1 = Number(this.pantalla)
+            this.pantalla =this.op1 +  ',e+'
+            document.getElementsByName('pantalla')[0].value =  this.pantalla 
+
+        } else {
+            this.op2 = Number(this.pantalla)
+            try{
+                var res = Math.exp(this.op1, this.op2)
+                this.pantalla = res;
+                this.op1 = res
+                this.ope = ',e+';
+                this.pantalla += this.ope;
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value =  this.pantalla 
+            } catch (err) {
+                document.getElementsByName('pantalla')[0].value =  this.pantalla 
+                buton.value = this.pantalla
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.mostrar = false;
+            }
+        }
+    }
+
+    // Botones de la memoria
+    btnLimpiarMem(){
+        this.memoria = 0
+    }
+
+    btnGuardadMem(){
+        if(document.getElementsByName('pantalla')[0].value != 'NaN'){
+            this.memoria = Number(document.getElementsByName('pantalla')[0].value)
+        }
+    }
+    
+    abrirParentesis(){
+        if(this.pantalla === '0' || this.pantalla === Number(0) || this.pantalla === 'ERROR' || this.pantalla === 'NaN' ){
+            this.pantalla = '('
+        } else {
+            this.pantalla += '('
+        }
+        this.parentesis = true
+        document.getElementsByName('pantalla')[0].value =  this.pantalla 
+    }
+
+    cerrarParentesis(){
+        if(this.parentesis){
+            this.pantalla += ')'
+            document.getElementsByName('pantalla')[0].value =  this.pantalla 
+        }
+    }
+
+    // Metodos que tengo que tocar para que ahora funcione con parentesis
+    buttonSuma(){
+        if(this.parentesis){
+            this.pantalla += '+'
+            document.getElementsByName('pantalla')[0].value =  this.pantalla 
+        } else {
+            super.suma()
+        }
+    }
+
+    buttonResta(){
+        if(this.parentesis){
+            this.pantalla += '-'
+            document.getElementsByName('pantalla')[0].value =  this.pantalla 
+        } else {
+            super.resta()
+        }
+    }
+
+    buttonMul(){
+        if(this.parentesis){
+            this.pantalla += '*'
+            document.getElementsByName('pantalla')[0].value =  this.pantalla 
+        } else {
+            super.multiplicacion()
+        }
+    }
+
+    buttonDiv(){
+        if(this.parentesis){
+            this.pantalla += '/'
+            document.getElementsByName('pantalla')[0].value =  this.pantalla 
+        } else {
+            super.division()
+        }
+    }
+
+    buttonIgual(){
+        if(this.parentesis){
+            try{
+
+                if(this.op1 != ""){
+                    this.ope = this.pantalla.substring(0,1)
+                    this.pantalla = this.pantalla.substring(1, this.pantalla.length)
+                    this.pantalla = eval(this.pantalla)
+                    super.igual()
+
+                } else {
+                    var res = eval(this.pantalla)
+                    this.pantalla = res;
+                    document.getElementsByName('pantalla')[0].value = this.pantalla
+                }
+
+            } catch (err) {
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla
+            }
+            this.parentesis = false
+        } else {
+            super.igual()
+        }
+
+        if(this.NotacionCien){
+            this.pantalla = this.pantalla.toExponential();
+            document.getElementsByName('pantalla')[0].value = this.pantalla
+        }
+    }
 }
 
 var calc = new CalculadoraCientifica();
