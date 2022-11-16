@@ -329,6 +329,7 @@ class Calculadora {
     addKeyEvents(){
         document.addEventListener('keydown', (event) => {
             const prueba = event.key;
+            console.log(prueba)
             if(prueba === '+'){
                 calc.suma()
             } else if(prueba == '1' || prueba == '2' || prueba == '3' || 

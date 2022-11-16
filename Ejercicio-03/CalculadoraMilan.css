@@ -15,8 +15,9 @@ main {
     display: grid;
     background-color: #d8bfd8;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6,1fr);
-    grid-gap: 1em;
+    grid-template-rows: repeat(7, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
     padding: 2em;
 }
 /*(0,1,2)*/
@@ -69,18 +70,15 @@ main > input[type = "button"][value = "="]
     background-color: #fdfd96;
 }
 /*(0,1,1)*/
-main :nth-child(20){
-    grid-row-start: 5;
-    grid-row-end: 7;
+main :nth-child(21){
+    grid-row-start: 6;
+    grid-row-end: 8;
     grid-column-start: 4;
     grid-column-end: 5;
-
 }
-/*(0,0,1)*/
+
 label{
-    /*Hago esto con el label, para que no moleste despues a la 
-    visualizacion del contenido*/
-    color: white;
-    background-color: #000000;
-    display: none;
+    height: 1em;
+    grid-column: 1/6;
+    width: 97%;
 }

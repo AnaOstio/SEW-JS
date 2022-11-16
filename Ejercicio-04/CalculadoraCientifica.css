@@ -8,20 +8,29 @@ body{
 /*(0,0,1)*/
 main {
     width: 100%;
-    max-width: 25em;
+    max-width: 30em;
     border-radius: 1em;
     display: grid;
-    background-color: #d8bfd8;
+    background: #ccc;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(10,1fr);
-    grid-gap: 1em;
+    row-gap: 1em;
+    column-gap: 1em;
     padding: 2em;
 }
+
+input {
+    min-height: 3em;
+    background-color: rgb(228, 226, 226);
+}
+
 /*(0,1,2)*/
 main > input[type ="text"]{
     width: 97%;
     height: 4em;
     grid-column: 1/6;
+    text-align: right;
+    background-color: #ccc;
+    font-size: 1.8em;
 }
 
 /*(0,2,2)*/
@@ -32,30 +41,17 @@ main > input[type ="button"][value = "F-E"]
 }
 
 
-
-/*(0,1,2)*/
-main > input[type = "button"]{
-    width: 100%;
-    height: 100%;
-    background-color: aliceblue;
-    color: black;
-}
-/*(0,2,2)*/
-main > input[type = "button"][value = "+"], 
-main > input[type = "button"][value = "-"], 
-main > input[type = "button"][value = "x"], 
-main > input[type = "button"][value = "/"], 
-main > input[type = "button"][value = "%"], 
-main > input[type = "button"][value = "MRC"], 
-main > input[type = "button"][value = "M-"], 
-main > input[type = "button"][value = "M+"],  
-main > input[type = "button"][value = "+/-"],  
-main > input[type = "button"][value = "√"],  
-main > input[type = "button"][value = "CE"], 
-main > input[type = "button"][value = "C"]
+main > input[type="button"][value = "F-E"],
+main > input[type="button"][value = "DEG"],
+main > input[type="button"][value = "HYP"],
+main > input[type="button"][value = "MC"],
+main > input[type="button"][value = "MR"],
+main > input[type="button"][value = "M+"],
+main > input[type="button"][value = "M-"],
+main > input[type="button"][value = "MS"]
 {
-    color: black;
-    background-color: aquamarine;
+    background-color: #ccc;
+    text-align: left;
 }
 
 
@@ -74,14 +70,40 @@ main > input[type = "button"][value = "·"],
 main > input[type = "button"][value = "="]
 {
     color: black;
-    background-color: #fdfd96;
+    background-color: white;
+    font-weight: bold;
 }
 
-/*(0,0,1)*/
+main > input[type = "button"][value = "1"]:hover, 
+main > input[type = "button"][value = "2"]:hover, 
+main > input[type = "button"][value = "3"]:hover, 
+main > input[type = "button"][value = "4"]:hover, 
+main > input[type = "button"][value = "5"]:hover, 
+main > input[type = "button"][value = "6"]:hover, 
+main > input[type = "button"][value = "7"]:hover, 
+main > input[type = "button"][value = "8"]:hover,  
+main > input[type = "button"][value = "9"]:hover,  
+main > input[type = "button"][value = "0"]:hover,
+main > input[type = "button"][value = "·"]:hover,  
+main > input[type = "button"][value = "="]:hover, 
+main > input[type="button"][value = "F-E"]:hover,
+main > input[type="button"][value = "DEG"]:hover,
+main > input[type="button"][value = "HYP"]:hover,
+main > input[type="button"][value = "MC"]:hover,
+main > input[type="button"][value = "MR"]:hover,
+main > input[type="button"][value = "M+"]:hover,
+main > input[type="button"][value = "M-"]:hover,
+main > input[type="button"][value = "MS"]:hover
+{
+    background-color: rgb(243, 243, 243);
+}
+
+input:hover{
+    background-color: rgb(243, 243, 243);
+}
+
 label{
-    /*Hago esto con el label, para que no moleste despues a la 
-    visualizacion del contenido*/
-    color: white;
-    background-color: #000000;
-    display: none;
+    text-align: left;
+    width: 100%;
+    grid-column: 1/6;
 }
