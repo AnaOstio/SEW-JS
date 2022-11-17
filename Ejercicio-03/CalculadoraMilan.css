@@ -26,6 +26,13 @@ main > input[type ="text"]{
     height: 4em;
     grid-column: 1/6;
 }
+
+main > label{
+    grid-column: 1/6;
+    width: 97%;
+}
+
+
 /*(0,1,2)*/
 main > input[type = "button"]{
     width: 100%;
@@ -77,8 +84,3 @@ main :nth-child(21){
     grid-column-end: 5;
 }
 
-label{
-    height: 1em;
-    grid-column: 1/6;
-    width: 97%;
-}
