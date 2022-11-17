@@ -26,7 +26,7 @@ main > input[type ="text"]{
     height: 4em;
     grid-column: 1/6;
 }
-
+/*(0,0,2)*/
 main > label{
     grid-column: 1/6;
     width: 97%;
