@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <title>Calculadora Cientifica</title>
     <meta name = "author" content="Ana Fernandez Ostio, UO275780" />
-    <meta name="description" content="Calculadora básica para SEW-JS" />
-    <meta name="keywords" content="calculadora,calculadora basica">
+    <meta name="description" content="Calculadora Cientifica para SEW-JS" />
+    <meta name="keywords" content="calculadora,calculadora Cientifica, calculadora windows">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CalculadoraCientifica.css" />
     <script src="CalculadoraCientifica.js"></script>
@@ -17,43 +17,43 @@
         <label for="pantalla">Calculadora Windows</label>
         <input type="text"    value=""      name="pantalla" id="pantalla" readonly />
         <input type="button"  value="DEG"   name="grades" onclick="calc.buttonChangeGrades()"/>
-        <input type="button"  value="HYP"   onclick="calc.buttonHYP()"/>
-        <input type="button"  value="F-E"   onclick="calc.buttonFE()"/>
+        <input type="button"  value="HYP"   onclick="calc.changeHyper()"/>
+        <input type="button"  value="F-E"   onclick="calc.notacionC()"/>
         <input type="button"  value="MC"    onclick="calc.btnLimpiarMem()" />
         <input type="button"  value="MR"    onclick="calc.mrc()"/>
         <input type="button"  value="M+"    onclick="calc.mMas()"/>
         <input type="button"  value="M-"    onclick="calc.mMenos()"/>
-        <input type="button"  value="MS"    onclick="calc.btnGuardadMem()"/>
-        <input type="button"  value="x²"    onclick="calc.btnCuadrado()"/>
+        <input type="button"  value="MS"    onclick="calc.guardarMem()"/>
+        <input type="button"  value="x²"    onclick="calc.elevadoCuadrado()"/>
         <input type="button"  value="x^y"   onclick="calc.xElevadoY()"/>
         <input type="button"  value="sin"   name="seno" onclick="calc.seno()"/>
         <input type="button"  value="cos"   name="cos" onclick="calc.cos()"/>
         <input type="button"  value="tan"   name="tan" onclick="calc.tan()"/>
         <input type="button"  value="√"     onclick="calc.botonRaizCuadrada()"/>
-        <input type="button"  value="10^x"  onclick="calc.btnElevadoDiez()"/>
+        <input type="button"  value="10^x"  onclick="calc.elevadoDiez()"/>
         <input type="button"  value="log"   onclick="calc.btnLog()"/>
         <input type="button"  value="Exp"   onclick="calc.exp()"/>
         <input type="button"  value="Mod"   onclick="calc.mod()"/>
-        <input type="button"  value="↑"     onclick="calc.flecha()"/>
-        <input type="button"  value="C"     onclick="calc.bottonC()"/>
+        <input type="button"  value="↑"     onclick="calc.shift()"/>
+        <input type="button"  value="C"     onclick="calc.botonC()"/>
         <input type="button"  value="CE"    onclick="calc.botonCE()"/>
-        <input type="button"  value="⌫"    onclick="calc.btnBorrar()"/>
-        <input type="button"  value="÷"     onclick="calc.buttonDiv()"/>
+        <input type="button"  value="⌫"    onclick="calc.borrar()"/>
+        <input type="button"  value="÷"     onclick="calc.division()"/>
         <input type="button"  value="π"     onclick="calc.buttonPI()"/>
         <input type="button"  value="7"     onclick="calc.digito(7)"/>
         <input type="button"  value="8"     onclick="calc.digito(8)"/>
         <input type="button"  value="9"     onclick="calc.digito(9)"/>
-        <input type="button"  value="x"     onclick="calc.buttonMul()"/>
+        <input type="button"  value="x"     onclick="calc.multiplicacion()"/>
         <input type="button"  value="n!"    onclick="calc.btnFact()"/>
         <input type="button"  value="4"     onclick="calc.digito(4)"/>
         <input type="button"  value="5"     onclick="calc.digito(5)"/>
         <input type="button"  value="6"     onclick="calc.digito(6)"/>
-        <input type="button"  value="-"     onclick="calc.buttonResta()"/>
+        <input type="button"  value="-"     onclick="calc.resta()"/>
         <input type="button"  value="+/-"   onclick="calc.botonMasMenos()"/>
         <input type="button"  value="1"     onclick="calc.digito(1)"/>
         <input type="button"  value="2"     onclick="calc.digito(2)"/>
         <input type="button"  value="3"     onclick="calc.digito(3)"/>
-        <input type="button"  value="+"     onclick="calc.buttonSuma()"/>
+        <input type="button"  value="+"     onclick="calc.suma()"/>
         <input type="button"  value="("     onclick="calc.abrirParentesis()"/>
         <input type="button"  value=")"     onclick="calc.cerrarParentesis()"/>
         <input type="button"  value="0"     onclick="calc.digito(0)"/>

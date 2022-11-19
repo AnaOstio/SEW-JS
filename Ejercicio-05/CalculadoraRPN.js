@@ -128,6 +128,43 @@ class CalculadoraRPN{
         this.actual = "0"
     }
 
+    raiz(){
+        if(this.stack.length >= 1){
+            var op1 = this.stack.pop()
+            var sum = Math.sqrt(op1);
+            this.actual = sum
+            this.actualizar()
+        }
+    }
+
+    xEleveadoY(){
+        if(this.stack.length >= 2){
+            var op1 = this.stack.pop()
+            var op2 = this.stack.pop()
+            var sum = op2 ** op1;
+            this.actual = sum
+            this.actualizar()
+        }
+    } 
+
+    logNeperiano(){
+        if(this.stack.length >= 1){
+            var op1 = this.stack.pop()
+            var sum = Math.log(op1);
+            this.actual = sum
+            this.actualizar()
+        }
+    }
+
+    logaritmo(){
+        if(this.stack.length >= 1){
+            var op1 = this.stack.pop()
+            var sum = Math.log10(op1);
+            this.actual = sum
+            this.actualizar()
+        }
+    }
+
     borrar(){
         if(this.actual.slice(-1) == '' && this.actual.slice(-1).substring(0,1) === '\n' ){
             this.actual = ""

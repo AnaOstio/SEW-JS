@@ -14,6 +14,7 @@ class Calculadora {
         this.resultado = false
         this.aux = 0
         this.hayResta = false
+        this.raiz = false
     }
 
     botonCE(){
@@ -37,12 +38,16 @@ class Calculadora {
         this.esDiv = false
         this.resultado = false
         this.aux = 0
+        this.raiz = false
     }
 
     botonRaizCuadrada(){
         var res = Number(eval(Number(this.pantalla) + '**' + "(1/2)"));
         this.pantalla = res;
         document.getElementsByName('pantalla')[0].value = this.pantalla
+        this.raiz = true
+        this.ope = "*"
+        this.op1  = res
     }
 
     botonPorcentaje(){
@@ -123,6 +128,7 @@ class Calculadora {
     }
 
     digito(number){
+
         if( this.pantalla === '-' && this.ope === "-"){
             this.pantalla += number + ""
             document.getElementsByName('pantalla')[0].value = this.pantalla 
@@ -130,6 +136,12 @@ class Calculadora {
             || this.pantalla === '/' || this.pantalla === '%' || this.pantalla === '-'){
             this.pantalla = number + ""
             document.getElementsByName('pantalla')[0].value = this.pantalla 
+        } else if(this.raiz){
+            this.op1 = this.pantalla
+            this.ope = "*"
+            this.pantalla = number
+            document.getElementsByName('pantalla')[0].value = number 
+            console.log(this.op1, this.ope, this.op2)
         } else {
             if(this.mostrar) {
                 this.pantalla = number
@@ -280,6 +292,13 @@ class Calculadora {
                 this.contadorDiv = this.contadorDiv - 1
                 this.op2 = "*"
                 document.getElementsByName('pantalla')[0].value = this.pantalla
+            } else if(this.raiz){
+                this.op2 = this.pantalla
+                console.log("entro soy concha", this.op1, this.op2, this.ope)
+                var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
+                document.getElementsByName('pantalla')[0].value = res
+                this.pantalla = res
+                this.raiz = false
             } else{
                 
                 try{
