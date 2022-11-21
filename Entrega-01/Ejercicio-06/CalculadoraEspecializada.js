@@ -3,6 +3,11 @@ class CalculadoraRPN{
     constructor(){
         this.stack = new Array()
         this.actual = ""
+
+        document.addEventListener('keydown', (event) => {
+            const letra = event.key;
+            calc.tipoTecla(letra)
+        })
     }
 
     digito(n){
@@ -128,6 +133,43 @@ class CalculadoraRPN{
         this.actual = "0"
     }
 
+    raiz(){
+        if(this.stack.length >= 1){
+            var op1 = this.stack.pop()
+            var sum = Math.sqrt(op1);
+            this.actual = sum
+            this.actualizar()
+        }
+    }
+
+    xEleveadoY(){
+        if(this.stack.length >= 2){
+            var op1 = this.stack.pop()
+            var op2 = this.stack.pop()
+            var sum = op2 ** op1;
+            this.actual = sum
+            this.actualizar()
+        }
+    } 
+
+    logNeperiano(){
+        if(this.stack.length >= 1){
+            var op1 = this.stack.pop()
+            var sum = Math.log(op1);
+            this.actual = sum
+            this.actualizar()
+        }
+    }
+
+    logaritmo(){
+        if(this.stack.length >= 1){
+            var op1 = this.stack.pop()
+            var sum = Math.log10(op1);
+            this.actual = sum
+            this.actualizar()
+        }
+    }
+
     borrar(){
         if(this.actual.slice(-1) == '' && this.actual.slice(-1).substring(0,1) === '\n' ){
             this.actual = ""
@@ -143,15 +185,6 @@ class CalculadoraRPN{
         this.stack = new Array()
         this.actual = ""
         document.getElementsByName('pantalla')[0].value = ""
-    }
-
-
-    addKeyEvents() {
-        document.addEventListener('keydown', (event) => {
-            const letra = event.key;
-            console.log(letra)
-            calc.tipoTecla(letra)
-        })
     }
 
     tipoTecla(l){
@@ -298,47 +331,10 @@ class CalculadoraFinanciera extends CalculadoraRPN{
         }
     }
 
-    addKeyEvents2() {
-        document.addEventListener('keydown', (event) => {
-            const letra = event.key;
-            console.log(letra)
-            calc.tipoTecla2(letra)
-        })
-    }
 
-    tipoTecla2(l) {
-        if(l === '1' || l === '2' || l === '3' || l === '4' || l === '5' || l === '6' || 
-            l === '7' || l === '8' || l === '9' || l === '0'){
-            calc.digito(l)
-        } else if (l === '*'){
-            calc.multiplicacion()
-        } else if(l === '-'){
-            calc.resta()
-        } else if(l === '+'){
-            calc.suma()
-        } else if (l === '/' ){
-            calc.division()
-        } else if(l === 'Backspace'){
-            calc.borrar()
-        } else if (l === 'C' || l === 'c'){
-            calc.botonC()
-        } else if(l === 's' || l === 'S'){
-            calc.sen()
-        } else if(l === 'd' || l==='D'){
-            calc.arcsen()
-        } else if(l === 'f' || l === 'F'){
-            calc.cos()
-        } else if(l === 'g' || l==='G'){
-            calc.arccos()
-        } else if(l === 'h' || l === 'H'){
-            calc.tan()
-        } else if(l === 'j' || l==='J'){
-            calc.arctan()
-        } else if(l === 'Enter'){
-            calc.enter()
-        } else if (l === '.' ){
-            calc.punto()
-        } else if(l === 'W' || l === 'w'){
+    tipoTecla(l) {
+        super.tipoTecla(l)
+        if(l === 'W' || l === 'w'){
             calc.armot()
         } else if (l === 'e' || l === 'E') {
             calc.ganPerd()
@@ -352,4 +348,3 @@ class CalculadoraFinanciera extends CalculadoraRPN{
 }
 
 var calc = new CalculadoraFinanciera()
-calc.addKeyEvents2()

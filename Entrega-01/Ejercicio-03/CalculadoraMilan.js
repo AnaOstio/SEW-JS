@@ -15,6 +15,10 @@ class Calculadora {
         this.aux = 0
         this.hayResta = false
         this.raiz = false
+
+        document.addEventListener('keydown', (event) => {
+            this.tipoTecla(event.key)
+        })
     }
 
     botonCE(){
@@ -141,7 +145,6 @@ class Calculadora {
             this.ope = "*"
             this.pantalla = number
             document.getElementsByName('pantalla')[0].value = number 
-            console.log(this.op1, this.ope, this.op2)
         } else {
             if(this.mostrar) {
                 this.pantalla = number
@@ -213,18 +216,67 @@ class Calculadora {
 
 
     suma(){
-        this.ope = '+';
-        this.op1 = Number(this.pantalla)
-        this.pantalla = '+'
-        document.getElementsByName('pantalla')[0].value = this.pantalla 
+        if(this.op1.length === 0){
+            this.ope = '+';
+            this.op1 = Number(this.pantalla)
+            this.pantalla = '+'
+            document.getElementsByName('pantalla')[0].value = this.pantalla 
+        } else {
+            this.op2 = this.pantalla
+            try {
+                var res = Number(eval(Number(this.op1) + this.ope+ Number(this.op2)))
+                this.op1 = res
+                this.ope = "+"
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value = res + "+"
+            } catch (error) {
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla 
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.memoria = "";
+                this.mostrar = false;
+                this.contador = 2
+                this.esMult = false
+                this.contadorDiv = -1
+                this.esDiv = false
+                this.resultado = false
+                this.aux = 0
+            }
+        }
     }
 
     multiplicacion(){
-        this.ope = '*';
-        this.op1 = Number(this.pantalla)
-        this.pantalla = '*'
-        document.getElementsByName('pantalla')[0].value = this.pantalla 
-
+        if(this.op1.length === 0){
+            this.ope = '*';
+            this.op1 = Number(this.pantalla)
+            this.pantalla = '*'
+            document.getElementsByName('pantalla')[0].value = this.pantalla 
+        } else {
+            this.op2 = this.pantalla
+            try {
+                var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
+                this.op1 = res
+                this.ope = "*"
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value = res + "*"
+            } catch (error) {
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla 
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.memoria = "";
+                this.mostrar = false;
+                this.contador = 2
+                this.esMult = false
+                this.contadorDiv = -1
+                this.esDiv = false
+                this.resultado = false
+                this.aux = 0
+            }
+        }
     }
 
     resta(){
@@ -235,21 +287,67 @@ class Calculadora {
             document.getElementsByName('pantalla')[0].value =  this.pantalla 
             } else {
             if(this.pantalla === '+' ||  this.pantalla === '*' 
-                || this.pantalla === '/' || this.pantalla === '%'){
+                || this.pantalla === '/' || this.pantalla === '%' || this.pantalla == '-'){
                 this.pantalla =  "-"
                 this.ope += "-"
                 document.getElementsByName('pantalla')[0].value =  this.pantalla 
             } else {
-                this.operando2 = Number(this.pantalla);
+                this.operando2 = this.pantalla;
+                try {
+                    var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
+                    this.op1 = res
+                    this.ope = "-"
+                    this.mostrar = true
+                    document.getElementsByName('pantalla')[0].value = res + "-"
+                } catch (error) {
+                    this.pantalla = "ERROR"
+                    document.getElementsByName('pantalla')[0].value = this.pantalla 
+                    this.op1 = "";
+                    this.op2 = "";
+                    this.ope = "";
+                    this.memoria = "";
+                    this.mostrar = false;
+                    this.contador = 2
+                    this.esMult = false
+                    this.contadorDiv = -1
+                    this.esDiv = false
+                    this.resultado = false
+                    this.aux = 0
+                }
             }
         }
     }
 
     division(){
-        this.ope = '/';
-        this.op1 = Number(this.pantalla)
-        this.pantalla = '/'
-        document.getElementsByName('pantalla')[0].value =  this.pantalla 
+        if(this.op1.length === 0){
+            this.ope = '/';
+            this.op1 = Number(this.pantalla)
+            this.pantalla = '/'
+            document.getElementsByName('pantalla')[0].value = this.pantalla 
+        } else {
+            this.op2 = this.pantalla
+            try {
+                var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
+                this.op1 = res
+                this.ope = "/"
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value = res + "/"
+            } catch (error) {
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla 
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.memoria = "";
+                this.mostrar = false;
+                this.contador = 2
+                this.esMult = false
+                this.contadorDiv = -1
+                this.esDiv = false
+                this.resultado = false
+                this.aux = 0
+            }
+        }
     }
 
     punto(){
@@ -294,7 +392,6 @@ class Calculadora {
                 document.getElementsByName('pantalla')[0].value = this.pantalla
             } else if(this.raiz){
                 this.op2 = this.pantalla
-                console.log("entro soy concha", this.op1, this.op2, this.ope)
                 var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
                 document.getElementsByName('pantalla')[0].value = res
                 this.pantalla = res
@@ -306,7 +403,7 @@ class Calculadora {
                         if(this.op2 != this.pantalla){
                             var res = Number(eval(Number(this.op1) + this.ope.slice(0,1) + Number(this.aux)))
                         } else {
-                            var res = Number(eval(Number(this.op1) + this.ope.slice(0,1) + Number(this.op2)))
+                            var res = Number(eval(Number(this.op1) + this.ope.slice(0,1) + Number(this.aux)))
                         }
                         this.op1 = res 
                         this.pantalla = res;
@@ -314,7 +411,6 @@ class Calculadora {
                     } else {
                         
                         if(this.op1 === ''){
-                            console.log("hola")
                             this.op1 = document.getElementsByName('pantalla')[0].value
                             var res = Number(eval(Number(this.op1) + "**" + Number(this.contador)))
                             this.pantalla = res
@@ -323,7 +419,6 @@ class Calculadora {
                             this.esMult = true
                             document.getElementsByName('pantalla')[0].value = this.pantalla
                         } else {
-
                             this.op2 = this.pantalla
                             if(this.op2.slice(0,1) === '-' && this.ope === '-'){
                                 var res = Number(eval(Number(this.op1) + "-" + Number(this.op2.slice(1))))
@@ -355,12 +450,6 @@ class Calculadora {
                 }
             }
         }
-    }
-
-    addKeyEvents(){
-        document.addEventListener('keydown', (event) => {
-            this.tipoTecla(event.key)
-        })
     }
 
     tipoTecla(prueba){
@@ -395,10 +484,11 @@ class Calculadora {
             calc.raiz();
         } else if(prueba == ','){
             calc.botonMasMenos()
+        } else if(prueba === '.'){
+            calc.punto()
         }
     }
     
 }
 
 var calc = new Calculadora();
-calc.addKeyEvents();

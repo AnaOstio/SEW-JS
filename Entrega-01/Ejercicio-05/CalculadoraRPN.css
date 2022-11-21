@@ -1,3 +1,4 @@
+/*(0,0,1)*/
 body {
     background-color: blanchedalmond;
     color: black;
@@ -6,6 +7,7 @@ body {
     align-items: center;
 }
 
+/*(0,0,1)*/
 main {
     width: 100%;
     max-width: 35em;
@@ -18,19 +20,15 @@ main {
     background-color:white;
 }
 
+/*(0,0,2)*/
 main > textarea {
     width: 99%;
     grid-column: 1/5;
     resize: none;
     overflow-y: scroll;
-    
+    text-align: right;
 }
-
+/*(0,0,2)*/
 main > input {
     height: 3em;
-}
-
-label {
-    grid-column: 1/5;
-    width: 100%;
 }

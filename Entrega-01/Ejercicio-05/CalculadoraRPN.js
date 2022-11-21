@@ -3,6 +3,11 @@ class CalculadoraRPN{
     constructor(){
         this.stack = new Array()
         this.actual = ""
+
+        document.addEventListener('keydown', (event) => {
+            const letra = event.key;
+            calc.tipoTecla(letra)
+        })
     }
 
     digito(n){
@@ -182,15 +187,6 @@ class CalculadoraRPN{
         document.getElementsByName('pantalla')[0].value = ""
     }
 
-
-    addKeyEvents() {
-        document.addEventListener('keydown', (event) => {
-            const letra = event.key;
-            console.log(letra)
-            calc.tipoTecla(letra)
-        })
-    }
-
     tipoTecla(l){
         if(l === '1' || l === '2' || l === '3' || l === '4' || l === '5' || l === '6' || 
             l === '7' || l === '8' || l === '9' || l === '0'){
@@ -228,4 +224,3 @@ class CalculadoraRPN{
 }
 
 var calc = new CalculadoraRPN()
-calc.addKeyEvents()

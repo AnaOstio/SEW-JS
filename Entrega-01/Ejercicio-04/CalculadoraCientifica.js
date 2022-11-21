@@ -1,3 +1,4 @@
+"use strict"
 class Calculadora {
     constructor(){
         this.pantalla = "";
@@ -15,6 +16,10 @@ class Calculadora {
         this.aux = 0
         this.hayResta = false
         this.raiz = false
+
+        document.addEventListener('keydown', (event) => {
+            this.tipoTecla(event.key);
+        });
     }
 
     botonCE(){
@@ -141,7 +146,6 @@ class Calculadora {
             this.ope = "*"
             this.pantalla = number
             document.getElementsByName('pantalla')[0].value = number 
-            console.log(this.op1, this.ope, this.op2)
         } else {
             if(this.mostrar) {
                 this.pantalla = number
@@ -213,18 +217,67 @@ class Calculadora {
 
 
     suma(){
-        this.ope = '+';
-        this.op1 = Number(this.pantalla)
-        this.pantalla = '+'
-        document.getElementsByName('pantalla')[0].value = this.pantalla 
+        if(this.op1.length === 0){
+            this.ope = '+';
+            this.op1 = Number(this.pantalla)
+            this.pantalla = '+'
+            document.getElementsByName('pantalla')[0].value = this.pantalla 
+        } else {
+            this.op2 = this.pantalla
+            try {
+                var res = Number(eval(Number(this.op1) + this.ope+ Number(this.op2)))
+                this.op1 = res
+                this.ope = "+"
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value = res + "+"
+            } catch (error) {
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla 
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.memoria = "";
+                this.mostrar = false;
+                this.contador = 2
+                this.esMult = false
+                this.contadorDiv = -1
+                this.esDiv = false
+                this.resultado = false
+                this.aux = 0
+            }
+        }
     }
 
     multiplicacion(){
-        this.ope = '*';
-        this.op1 = Number(this.pantalla)
-        this.pantalla = '*'
-        document.getElementsByName('pantalla')[0].value = this.pantalla 
-
+        if(this.op1.length === 0){
+            this.ope = '*';
+            this.op1 = Number(this.pantalla)
+            this.pantalla = '*'
+            document.getElementsByName('pantalla')[0].value = this.pantalla 
+        } else {
+            this.op2 = this.pantalla
+            try {
+                var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
+                this.op1 = res
+                this.ope = "*"
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value = res + "*"
+            } catch (error) {
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla 
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.memoria = "";
+                this.mostrar = false;
+                this.contador = 2
+                this.esMult = false
+                this.contadorDiv = -1
+                this.esDiv = false
+                this.resultado = false
+                this.aux = 0
+            }
+        }
     }
 
     resta(){
@@ -235,21 +288,67 @@ class Calculadora {
             document.getElementsByName('pantalla')[0].value =  this.pantalla 
             } else {
             if(this.pantalla === '+' ||  this.pantalla === '*' 
-                || this.pantalla === '/' || this.pantalla === '%'){
+                || this.pantalla === '/' || this.pantalla === '%' || this.pantalla == '-'){
                 this.pantalla =  "-"
                 this.ope += "-"
                 document.getElementsByName('pantalla')[0].value =  this.pantalla 
             } else {
-                this.operando2 = Number(this.pantalla);
+                this.operando2 = this.pantalla;
+                try {
+                    var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
+                    this.op1 = res
+                    this.ope = "-"
+                    this.mostrar = true
+                    document.getElementsByName('pantalla')[0].value = res + "-"
+                } catch (error) {
+                    this.pantalla = "ERROR"
+                    document.getElementsByName('pantalla')[0].value = this.pantalla 
+                    this.op1 = "";
+                    this.op2 = "";
+                    this.ope = "";
+                    this.memoria = "";
+                    this.mostrar = false;
+                    this.contador = 2
+                    this.esMult = false
+                    this.contadorDiv = -1
+                    this.esDiv = false
+                    this.resultado = false
+                    this.aux = 0
+                }
             }
         }
     }
 
     division(){
-        this.ope = '/';
-        this.op1 = Number(this.pantalla)
-        this.pantalla = '/'
-        document.getElementsByName('pantalla')[0].value =  this.pantalla 
+        if(this.op1.length === 0){
+            this.ope = '/';
+            this.op1 = Number(this.pantalla)
+            this.pantalla = '/'
+            document.getElementsByName('pantalla')[0].value = this.pantalla 
+        } else {
+            this.op2 = this.pantalla
+            try {
+                var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
+                this.op1 = res
+                this.ope = "/"
+                this.mostrar = true
+                document.getElementsByName('pantalla')[0].value = res + "/"
+            } catch (error) {
+                this.pantalla = "ERROR"
+                document.getElementsByName('pantalla')[0].value = this.pantalla 
+                this.op1 = "";
+                this.op2 = "";
+                this.ope = "";
+                this.memoria = "";
+                this.mostrar = false;
+                this.contador = 2
+                this.esMult = false
+                this.contadorDiv = -1
+                this.esDiv = false
+                this.resultado = false
+                this.aux = 0
+            }
+        }
     }
 
     punto(){
@@ -294,7 +393,6 @@ class Calculadora {
                 document.getElementsByName('pantalla')[0].value = this.pantalla
             } else if(this.raiz){
                 this.op2 = this.pantalla
-                console.log("entro soy concha", this.op1, this.op2, this.ope)
                 var res = Number(eval(Number(this.op1) + this.ope + Number(this.op2)))
                 document.getElementsByName('pantalla')[0].value = res
                 this.pantalla = res
@@ -306,7 +404,7 @@ class Calculadora {
                         if(this.op2 != this.pantalla){
                             var res = Number(eval(Number(this.op1) + this.ope.slice(0,1) + Number(this.aux)))
                         } else {
-                            var res = Number(eval(Number(this.op1) + this.ope.slice(0,1) + Number(this.op2)))
+                            var res = Number(eval(Number(this.op1) + this.ope.slice(0,1) + Number(this.aux)))
                         }
                         this.op1 = res 
                         this.pantalla = res;
@@ -314,7 +412,6 @@ class Calculadora {
                     } else {
                         
                         if(this.op1 === ''){
-                            console.log("hola")
                             this.op1 = document.getElementsByName('pantalla')[0].value
                             var res = Number(eval(Number(this.op1) + "**" + Number(this.contador)))
                             this.pantalla = res
@@ -323,7 +420,6 @@ class Calculadora {
                             this.esMult = true
                             document.getElementsByName('pantalla')[0].value = this.pantalla
                         } else {
-
                             this.op2 = this.pantalla
                             if(this.op2.slice(0,1) === '-' && this.ope === '-'){
                                 var res = Number(eval(Number(this.op1) + "-" + Number(this.op2.slice(1))))
@@ -357,52 +453,49 @@ class Calculadora {
         }
     }
 
-    addKeyEvents(){
-        document.addEventListener('keydown', (event) => {
-            this.tipoTecla(event.key)
-        })
-    }
-
     tipoTecla(prueba){
         if(prueba === '+'){
-            calc.suma()
+            this.suma()
         } else if(prueba == '1' || prueba == '2' || prueba == '3' || 
                   prueba == '4' || prueba == '5' || prueba == '6' || 
                   prueba == '7' || prueba == '8' || prueba == '9' || 
                   prueba == '0'){
-            calc.digito(prueba)
+            this.digito(prueba)
         } else if(prueba == '*'){
-            calc.multiplicacion()
+            this.multiplicacion()
         } else if(prueba == '/'){
-            calc.division();
+            this.division();
         } else if(prueba == 'Enter'){
             calc.igual();
         } else if(prueba == '%'){
-            calc.botonPorcentaje();
+            this.botonPorcentaje();
         } else if(prueba == 'c' || prueba == 'C'){
-            calc.botonC();
+            this.botonC();
         } else if(prueba == 'Delete'){
-            calc.botonCE();
+            this.botonCE();
         } else if(prueba == '-'){
-            calc.resta();
+            this.resta();
         } else if(prueba == 'm' || prueba == 'M' ){
-            calc.mrc()
+            this.mrc()
         } else if(prueba == 'n' || prueba == 'N' ){
-            calc.mMas()
+            this.mMas()
         } else if(prueba == 'b' || prueba == 'B' ){
-            calc.mMenos()
+            this.mMenos()
         } else if(prueba == 'r' || prueba == 'R'){
-            calc.raiz();
+            this.raiz();
         } else if(prueba == ','){
-            calc.botonMasMenos()
+            this.botonMasMenos()
+        } else if(prueba === '.'){
+            this.punto()
         }
     }
     
 }
 
-class CalculadoraCientifica {
+class CalculadoraCientifica extends Calculadora{
 
     constructor(){
+        super();
         this.cadena = ""
         this.flecha = false
         this.hyp = false
@@ -579,6 +672,7 @@ class CalculadoraCientifica {
         this.paE = ""
         this.e = false
         this.notacion = false;
+        document.getElementsByName('pantalla')[0].value = ""
         this.changeValores()
     }
 
@@ -751,79 +845,40 @@ class CalculadoraCientifica {
             document.getElementsByName('pantalla')[0].value.substring(0, document.getElementsByName('pantalla')[0].value.length - 1)
     }
 
-    addKeyEvents(){
-        document.addEventListener('keydown', (event) => {
-            this.tipoTecla(event.key)
-        })
-    }
-
     tipoTecla(tecla){
-        if(tecla === '+'){
-            calc.suma()
-        } else if(tecla == '1' || tecla == '2' || tecla == '3' || 
-        tecla == '4' || tecla == '5' || tecla == '6' || 
-        tecla == '7' || tecla == '8' || tecla == '9' || 
-        tecla == '0'){
-            calc.digito(tecla)
-        } else if(tecla == '*'){
-            calc.multiplicacion()
-        } else if(tecla == '/'){
-            calc.division();
-        } else if(tecla == 'Enter'){
-            calc.igual();
-        } else if(tecla == '%'){
-            calc.mod();
-        } else if(tecla == 'c' || tecla == 'C'){
-            calc.botonC();
-        } else if(tecla == 'Delete'){
-            calc.botonCE();
-        } else if(tecla == '-'){
-            calc.resta();
-        } else if(tecla == 'm' || tecla == 'M' ){
-            calc.mrc()
-        } else if(tecla == 'n' || tecla == 'N' ){
-            calc.mMas()
-        } else if(tecla == 'b' || tecla == 'B' ){
-            calc.mMenos()
-        } else if(tecla == 'r' || tecla == 'R'){
-            calc.raiz();
-        } else if(tecla == ','){
-            calc.botonMasMenos()
-        } else if(tecla === 'l' || tecla === 'L'){
-            calc.log()
+        super.tipoTecla(tecla)
+        if(tecla === 'l' || tecla === 'L'){
+            this.log()
         } else if(tecla === 'f' || tecla === 'F'){
-            calc.factorial()
+            this.btnFact()
         } else if(tecla === 'Shift'){
-            calc.shift()
+            this.shift()
         } else if(tecla === 'Tab'){
-            calc.buttonChangeGrades()
+            this.buttonChangeGrades()
         } else if(tecla === 'h' || tecla === 'H'){
-            calc.changeHyper()
+            this.changeHyper()
         } else if(tecla === 'i' || tecla === 'I'){
-            calc.buttonPI()
+            this.buttonPI()
         } else if(tecla === 'x' || tecla === 'X'){
-            calc.exp()
+            this.exp()
         } else if(tecla === '('){
-            calc.abrirParentesis()
+            this.abrirParentesis()
         } else if(tecla === ')'){
-            calc.cerrarParentesis()
-        } else if(tecla === '.'){
-            calc.punto()
+            this.cerrarParentesis()
         } else if(tecla === 'p' || tecla === 'P'){
-            calc.elevadoCuadrado()
+            this.elevadoCuadrado()
         } else if(tecla === 'o' || tecla === 'O'){
-            calc.elevadoDiez()
+            this.elevadoDiez()
         } else if(tecla === 'u' || tecla === 'U'){
-            calc.xElevadoY()
+            this.xElevadoY()
         } else if(tecla === 't' || tecla === 'T'){
-            calc.notacionC()    
+            this.notacionC()    
         } else if(tecla === 'v' || tecla === 'V'){
-            calc.btnLimpiarMem()
+            this.btnLimpiarMem()
         } else if(tecla === 'z' || tecla === 'Z'){
-            calc.guardarMem()
+            this.guardarMem()
         }
     }
 }
 
 var calc = new CalculadoraCientifica();
-calc.addKeyEvents()

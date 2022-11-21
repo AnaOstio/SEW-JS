@@ -27,9 +27,15 @@ main > textarea {
     resize: none;
     overflow-y: scroll;
     text-align: right;
-    
 }
+
 /*(0,0,2)*/
 main > input {
     height: 3em;
+}
+
+/*(0,0,1)*/
+label {
+    grid-column: 1/5;
+    width: 100%;
 }

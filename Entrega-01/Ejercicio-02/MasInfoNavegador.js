@@ -1,4 +1,3 @@
-
 document.write(infoNavegador.version);
 document.write(infoNavegador.plataforma);
 document.write(infoNavegador.vendedor);
