@@ -24,7 +24,7 @@ class CalculadoraRPN{
         var num = Number(this.actual)
         if(num != "NaN"){
             this.stack.push(num)
-            document.getElementsByName('pantalla')[0].value += num + "\n"
+            document.getElementsByName('pantalla')[0].textContent += num + "\n"
             this.actual = ""
         }
     }
@@ -129,7 +129,7 @@ class CalculadoraRPN{
         for(var i = 0; i < this.stack.length; i++) {
             text += this.stack[i] + "\n"
         }
-        document.getElementsByName('pantalla')[0].value = text + "\n"
+        document.getElementsByName('pantalla')[0].textContent = text + "\n"
         this.actual = "0"
     }
 
@@ -184,7 +184,7 @@ class CalculadoraRPN{
     botonC(){
         this.stack = new Array()
         this.actual = ""
-        document.getElementsByName('pantalla')[0].value = ""
+        document.getElementsByName('pantalla')[0].textContent = ""
     }
 
     tipoTecla(l){
