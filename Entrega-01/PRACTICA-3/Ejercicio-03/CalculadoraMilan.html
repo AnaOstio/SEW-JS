@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Calculadora Basica</title>
+    <meta name = "author" content="Ana Fernandez Ostio, UO275780" />
+    <meta name="description" content="Calculadora básica para SEW-JS" />
+    <meta name="keywords" content="calculadora,calculadora basica">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CalculadoraMilan.css" />
+    <script src="CalculadoraMilan.js"></script>
+</head>
+
+<body>
+    <h1>CALCULADORA BÁSICA</h1>
+    <main>
+        <label for="pantalla">nata by MILAN</label>
+        <input type="text"    value=""    name="pantalla" id="pantalla" readonly />
+        <input type="button"  value="C"   onclick="calc.botonC()"/>
+        <input type="button"  value="CE"  onclick="calc.botonCE()"/>
+        <input type="button"  value="+/-" onclick="calc.botonMasMenos()"/>
+        <input type="button"  value="√"   onclick="calc.botonRaizCuadrada()"/>
+        <input type="button"  value="%"   onclick="calc.botonPorcentaje()"/>
+        <input type="button"  value="7"   onclick="calc.digito(7)"/>
+        <input type="button"  value="8"   onclick="calc.digito(8)"/>
+        <input type="button"  value="9"   onclick="calc.digito(9)"/>
+        <input type="button"  value="x"   onclick="calc.multiplicacion()"/>
+        <input type="button"  value="/"   onclick="calc.division()"/>
+        <input type="button"  value="4"   onclick="calc.digito(4)"/>
+        <input type="button"  value="5"   onclick="calc.digito(5)"/>
+        <input type="button"  value="6"   onclick="calc.digito(6)"/>
+        <input type="button"  value="-"   onclick="calc.resta()"/>
+        <input type="button"  value="MRC" onclick="calc.mrc()" />
+        <input type="button"  value="1"   onclick="calc.digito(1)"/>
+        <input type="button"  value="2"   onclick="calc.digito(2)"/>
+        <input type="button"  value="3"   onclick="calc.digito(3)"/>
+        <input type="button"  value="+"   onclick="calc.suma()"/>
+        <input type="button"  value="M-"  onclick="calc.mMenos()"/>
+        <input type="button"  value="0"   onclick="calc.digito(0)"/>
+        <input type="button"  value="·"   onclick="calc.punto()"/>
+        <input type="button"  value="="   onclick="calc.igual()"/>
+        <input type="button"  value="M+"  onclick="calc.mMas()"/>
+    </main>
+</body>
+
+</html>
