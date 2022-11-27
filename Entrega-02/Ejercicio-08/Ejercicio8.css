@@ -27,22 +27,6 @@ section, article, aside {
     margin: 0.2em;
 }
 
-/*TABLA*/
-/*(0,0,1)*/
-table{
-    border: 0.15em solid #4DD2FF;
-    text-align: center;
-    border-collapse: collapse;
-}
-
-/*(0,0,1)*/
-th { 
-    /*El color de la letra lo hereda de body*/
-    background-color: #4DD2FF;
-    border: 0.05em solid #4DD2FF;     
-}
-
-/*(0,0,1)*/
-td{
-    border: 0.05em solid #4DD2FF;  
+img {
+    width: 40%;
 }
