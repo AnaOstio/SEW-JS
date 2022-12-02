@@ -25,8 +25,8 @@
 
     <body>
         <h1>GeoJSON</h1>
-        <h2>Seleccione un archivo GeoJSON</h2>
-        <input type="file" value="archivo" onchange="mapa.initMap(this.files);" />
+        <hlabel for="archivo">Seleccione un archivo GeoJSON</hlabel>
+        <input id="archivo" name="archivo" type="file" value="archivo" onchange="mapa.initMap(this.files);" />
         <p></p>
         <main>
         </main>
