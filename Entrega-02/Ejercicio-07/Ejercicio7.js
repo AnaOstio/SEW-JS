@@ -60,7 +60,9 @@ class Objecto {
         }
         f += '</tr>'
 
-       document.querySelector('table').innerHTML += f
+       document.querySelector('tbody').innerHTML += f
+
+       document.querySelector('table tr:last-child').innerHTML += "<td>"+0+"</td>"
 
     }
 
