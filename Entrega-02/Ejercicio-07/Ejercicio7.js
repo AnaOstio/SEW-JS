@@ -25,19 +25,43 @@ class Objecto {
     }
 
     sumaFilaColumnas(){
-        var filas = 0;
-        var cols = 0;
-        $("table tr").each(
-            function() {
-                filas += 1
-        });
+        var tabla = document.querySelector('table');
+        var nFils = document.querySelectorAll('tr').length;
+        var nCols = document.querySelectorAll('tr:first-child th').length
 
-        $("table th").each(
-            function() {
-                cols += 1
-        });
+        tabla.querySelector('tr:first-child').innerHTML += "<th>Total</th>"
 
-        $("table").after("<p>Hay " + filas +" filas y " + cols + " columnas</p>")
+        var filas = tabla.querySelectorAll('tr');
+        for(let i = 1; i < nFils; i++){
+            
+            var Total = filas[i].innerText.replace('\t', ' ')
+            filas[i].innerHTML += "<td>"+ Total +"</td>" 
+        }
+
+        var last = "";
+        for(let i = 0; i < nCols; i++){
+            var Total = ""
+            for(let f = 1; f<nFils; f++){
+                Total += filas[f].children[i].innerText + " ";
+
+            }
+
+            if(i == nCols - 1){
+                last += Total
+            } else {
+                last += Total + '|p|'
+            }
+        }
+
+        var totalCols = last.split('|p|');
+        var f = '<tr>'
+        for(let i = 0; i <  totalCols.length; i++){
+            f += '<td>' + totalCols[i] + "</td>"
+        }
+        f += '</tr>'
+
+       document.querySelector('table').innerHTML += f
+
     }
 
     recorrerDOM(){

@@ -7,11 +7,14 @@
 
     <link rel="stylesheet" href="Ejercicio11.css">
     <script src="Ejercicio11.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU&callback=miPosicion.initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU&callback=miPosicion.unSol"></script>
     <title>Mapa dinamico Google</title>
 </head>
 <body>
     <h1>Mapa Dinámico Google, ubiacion en tiempo real</h1>
+    <input type="button" value="Restaurantes con I Sol Repsol" onclick="miPosicion.unSol()" />
+    <input type="button" value="Restaurantes con II Sol Repsol" onclick="miPosicion.dosSol()" />
+    <input type="button" value="Restaurantes con III Sol Repsol" onclick="miPosicion.tresSol()" />
     <main>
         <section><h2>Ubicacion real</h2></section>
     </main>
