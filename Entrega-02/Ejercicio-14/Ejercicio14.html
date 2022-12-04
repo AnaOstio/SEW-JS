@@ -25,11 +25,22 @@
 
     <body>
         <h1>Procesamiento de audio</h1>
-        <label for="archivo">Seleccione los archivos MP3</label>
+        <label for="archivo">Seleccione el archivo MP3</label>
         <input id="archivo" name="pantalla" type="file" value="archivo" onchange="audio.checkFile(this.files);" />
 
         <section ondrop="audio.drop(event);" ondragover="audio.drag(event);">
-            <h2>Arrastre los archivos MP3 a procesar</h2>
+            <h2>Arrastre aquí el archivo MP3 a procesar</h2>
         </section>
+
+        <h3>El audio seleccionado</h3>
+        <audio src="audio.mp3" controls></audio>
+        <p>
+            <input type = 'button' value = 'Lowpass' onclick = 'audio.lowpass()' />
+            <input type = 'button' value = 'HighPass' onclick = 'audio.highpass()' />  
+            <input type = 'button' value = 'Bandpass' onclick = 'audio.bandpass()' />
+            <input type = 'button' value = 'Notch' onclick = 'audio.notch()' />
+        </p>
+        <label for="hz">Cambie la frecuencia</label>
+        <input type="range" min="1" value="50" id="hz" onchange="audio.frecuencia()"/>
     </body>
 </html>
