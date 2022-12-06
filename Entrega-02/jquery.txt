@@ -1,9 +1,0 @@
-Importar 
-    <script = "" /> - > lo que se de jquery, mirar lo de cueva
-    Script de JS normal
-
-
-Utilizar
-    se Utiliza la sintaxis $('selector necesario).loQueQueramos
-
-No copia y pega de los ejemplos, pero si nos puede servir

@@ -1,0 +1,395 @@
+{
+    "features": [
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.872797,
+                    43.369722,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital del Naranco, Oviedo",
+                "name": " NACIMIENTO DE: Ana Fernández Ostio"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.686115,
+                    43.300599,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Ana Fernández Ostio",
+                "name": " RESIDENCIA DE: Ana Fernández Ostio"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.721423,
+                    43.327384,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital Valle del Nalón, Langreo",
+                "name": " NACIMIENTO DE: Andrea Romero Fernández"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.684037,
+                    43.31346,
+                    140
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Andrea Romero Fernández",
+                "name": " RESIDENCIA DE: Andrea Romero Fernández"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.722335,
+                    43.328808,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital Valle del Nalón, Langreo",
+                "name": " NACIMIENTO DE: Sara Rodríguez Gonzalez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.694365,
+                    43.307858,
+                    140
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Sara Rodríguez Gonzalez",
+                "name": " RESIDENCIA DE: Sara Rodríguez Gonzalez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.828411,
+                    43.374761,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital Universitario de Asturias, Oviedo",
+                "name": " NACIMIENTO DE: Sofía Nevado Domínguez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.696117,
+                    43.310724, 
+                    140
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Sofía Nevado Domínguez",
+                "name": " RESIDENCIA DE: Sofía Nevado Domínguez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.606915,
+                    43.52543,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital Cabueñes, Gijón",
+                "name": " NACIMIENTO DE: Carlos Aparicio Rodríguez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.694912,
+                    43.308383,
+                    140
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Carlos Aparicio Rodríguez",
+                "name": " RESIDENCIA DE: Carlos Aparicio Rodríguez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.87329,
+                    43.370522,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital del Naranco, Oviedo",
+                "name": " NACIMIENTO DE: Sonia Fernández Coto"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.563205,
+                    43.217147,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Sonia Fernández Coto",
+                "name": " RESIDENCIA DE: Sonia Fernández Coto"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.780912,
+                    43.226214,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital Álvarez Buylla, Mieres",
+                "name": " NACIMIENTO DE: Alicia Fernández Pushkina"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.780472,
+                    43.254424,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Alicia Fernández Pushkina",
+                "name": " RESIDENCIA DE: Alicia Fernández Pushkina"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.699638,
+                    43.550294,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital del Naranco, Oviedo",
+                "name": " NACIMIENTO DE: Miriam Gonzalez Alonso"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.854382,
+                    43.370756,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Miriam Gonzalez Alonso",
+                "name": " RESIDENCIA DE: Miriam Gonzalez Alonso"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.87329,
+                    43.370522,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital del Naranco, Oviedo",
+                "name": " NACIMIENTO DE: Hector Lavandeira Fernández"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.840642,
+                    43.358549,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Hector Lavandeira Fernández",
+                "name": " RESIDENCIA DE: Hector Lavandeira Fernández"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.872073,
+                    43.368802,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital del Naranco, Oviedo",
+                "name": " NACIMIENTO DE: Sergio Murillo Álvarez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.562731,
+                    43.247722,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Sergio Murillo Álvarez",
+                "name": " RESIDENCIA DE: Sergio Murillo Álvarez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.873267,
+                    43.371403,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital del Naranco, Oviedo",
+                "name": " NACIMIENTO DE: Sara Ferrero Lopez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.694307387923418,
+                    43.30819278631577,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Sara Ferrero Lopez",
+                "name": " RESIDENCIA DE: Sara Ferrero Lopez"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.823658,
+                    43.375899,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital Universitario de Asturias, Oviedo",
+                "name": " NACIMIENTO DE: Noemí Cuesta Murillo"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.695246,
+                    43.309329,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Noemí Cuesta Murillo",
+                "name": " RESIDENCIA DE: Noemí Cuesta Murillo"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.605899,
+                    43.524259,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": "Nacío en :Hospital Universitario de Asturias, Oviedo",
+                "name": " NACIMIENTO DE: Darío Martínez Bajo"
+            },
+            "type": "Feature"
+        },
+        {
+            "geometry": {
+                "coordinates": [
+                    -5.643816,
+                    43.328766,
+                    120
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "description": " RESIDENCIA DE: Darío Martínez Bajo",
+                "name": " RESIDENCIA DE: Darío Martínez Bajo"
+            },
+            "type": "Feature"
+        }
+    ],
+    "type": "FeatureCollection"
+}
