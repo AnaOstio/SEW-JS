@@ -1,6 +1,6 @@
 class GasNatual{
     constructor(){
-        this.url = "https://commodities-api.com/api/latest?access_key=r744jh6kmicqzco10t85x12al9k8u2kjz0s75br0s003v9p0ec2u8avjdhyd&base=EUR&symbols=NG"
+        this.url = "https://commodities-api.com/api/latest?access_key=generar_api&base=EUR&symbols=NG"
 
     }
 
