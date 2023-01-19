@@ -1,6 +1,6 @@
 class Meteo{
     constructor(ciu){
-        this.apikey = "d9e1d0aa1e31ad46ec137b434cea4854"
+        this.apikey = "generar_api"
         this.ciudad = ciu
         this.pais = "es"
         this.unidades = "&units=metric";
