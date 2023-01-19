@@ -51,7 +51,7 @@ class MapaEstaticoGoogle {
     }
     getMapaEstaticoGoogle(){
         
-        var apiKey = "&key=AIzaSyA6ZSk0TPTUnw5SmxR4iP6ZU6ZBQcGq8Jg";
+        var apiKey = "&key=generar_api";
         //URL: obligatoriamente https
         var url = "https://maps.googleapis.com/maps/api/staticmap?";
         var centro = "center=" + this.latitud + "," + this.longitud;
