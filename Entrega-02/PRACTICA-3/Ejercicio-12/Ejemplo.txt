@@ -1,1 +1,0 @@
-Ejemplo utilizado para el ejercicio 12 de JavaScript
